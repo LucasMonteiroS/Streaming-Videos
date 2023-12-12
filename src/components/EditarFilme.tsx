@@ -82,8 +82,10 @@ const MovieEditModal: React.FC<MovieEditModalProps> = ({
           setEditedMovie({ ...editedMovie, classificacao: e.target.value })
         }
       />
-      <button onClick={handleSave}>Salvar</button>
-      <button onClick={onRequestClose}>Cancelar</button>
+      <div className="botoes">
+      <button className="botao" onClick={handleSave}>Salvar</button>
+      <button className="botao" onClick={onRequestClose}>Cancelar</button>
+      </div>
     </Modal>
   );
 };

@@ -39,9 +39,11 @@ const MovieDetailsModal: React.FC<MovieDetailsModalProps> = ({
       <p className="texts-item">Sinopse: {movie.sinopse}</p>
       <p className="texts-item">Elenco: {movie.elenco}</p>
       <p className="texts-item">Classificação: {movie.classificacao}</p>
-      <button onClick={onEditClick}>Editar</button>
-      <button onClick={onRemoveClick}>Remover</button>
-      <button onClick={onRequestClose}>Fechar</button>
+      <div className="botoes">
+      <button className="botao" onClick={onEditClick}>Editar</button>
+      <button className="botao" onClick={onRemoveClick}>Remover</button>
+      <button className="botao" onClick={onRequestClose}>Fechar</button>
+      </div>
     </Modal>
   );
 };

@@ -56,8 +56,10 @@ interface MovieAddModalProps {
         <input type="text" value={elenco} onChange={(e) => setElenco(e.target.value)} />
         <label>Classificação:</label>
         <input type="text" value={classificacao} onChange={(e) => setClassificacao(e.target.value)} />
-        <button onClick={handleAdd}>Adicionar Filme</button>
-        <button onClick={onRequestClose}>Cancelar</button>
+        <div className="botoes">
+        <button className="botao" onClick={handleAdd}>Adicionar Filme</button>
+        <button className="botao" onClick={onRequestClose}>Cancelar</button>
+        </div>
       </Modal>
     );
   };
