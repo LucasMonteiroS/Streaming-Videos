@@ -31,10 +31,6 @@ const App: React.FC = () => {
     setDetailsModalOpen(true);
   }, [movies]);
 
-  const handleMovieSubmit = useCallback((movie: Movie) => {
-    setMovies([...movies, movie]);
-  }, [movies]);
-
   const handleEditClick = useCallback(() => {
     setEditModalOpen(true);
   }, []);
