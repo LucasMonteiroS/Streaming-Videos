@@ -1,6 +1,6 @@
 # Streaming-Videos
 
-# Comandos para inicial o projeto:
+# Comandos para iniciar o projeto:
 
 # 1º Use "npm install" para instalar as depêndencias do projeto.
 
