@@ -1,0 +1,18 @@
+.MovieDetailsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    z-index: 2;
+    border-radius: 5%;
+  }
+
+.texts-item{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+}

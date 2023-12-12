@@ -1,0 +1,52 @@
+.AppContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.centralizar {
+  position:absolute;
+  left: 40%;
+  top: 14%;
+  width: 20%;
+}
+
+.botaoTopo{
+  position:absolute;
+  left: 1%;
+  bottom: 1%;
+  width: 10%;
+}
+
+.botaoADD{
+  position:absolute;
+  top: 14%;
+  left: 1%;
+  width: 10%;
+}
+
+.lista{
+  position:absolute;
+  top: 20%;
+  left: 1%;
+  width: 98%;
+  height: 70%;
+  overflow: auto;
+}
