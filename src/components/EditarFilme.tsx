@@ -44,6 +44,10 @@ const MovieEditModal: React.FC<MovieEditModalProps> = ({
       <h2>Editar Filme</h2>
       <label>Título:</label>
       <input
+        style={{
+          color: "#0000",
+          backgroundColor: "#FFFFFF",
+        }}
         type="text"
         value={editedMovie.title}
         onChange={(e) =>
@@ -52,6 +56,10 @@ const MovieEditModal: React.FC<MovieEditModalProps> = ({
       />
       <label>URL do Cartaz:</label>
       <input
+        style={{
+          color: "#0000",
+          backgroundColor: "#FFFFFF",
+        }}
         type="text"
         value={editedMovie.posterUrl}
         onChange={(e) =>
@@ -60,6 +68,10 @@ const MovieEditModal: React.FC<MovieEditModalProps> = ({
       />
       <label>Sinopse:</label>
       <input
+        style={{
+          color: "#0000",
+          backgroundColor: "#FFFFFF",
+        }}
         type="text"
         value={editedMovie.sinopse}
         onChange={(e) =>
@@ -68,6 +80,10 @@ const MovieEditModal: React.FC<MovieEditModalProps> = ({
       />
       <label>Elenco:</label>
       <input
+        style={{
+          color: "#0000",
+          backgroundColor: "#FFFFFF",
+        }}
         type="text"
         value={editedMovie.elenco}
         onChange={(e) =>
@@ -76,6 +92,10 @@ const MovieEditModal: React.FC<MovieEditModalProps> = ({
       />
       <label>Classificação:</label>
       <input
+        style={{
+          color: "#0000",
+          backgroundColor: "#FFFFFF",
+        }}
         type="text"
         value={editedMovie.classificacao}
         onChange={(e) =>
@@ -83,8 +103,12 @@ const MovieEditModal: React.FC<MovieEditModalProps> = ({
         }
       />
       <div className="botoes">
-      <button className="botao" onClick={handleSave}>Salvar</button>
-      <button className="botao" onClick={onRequestClose}>Cancelar</button>
+        <button className="botao" onClick={handleSave}>
+          Salvar
+        </button>
+        <button className="botao" onClick={onRequestClose}>
+          Cancelar
+        </button>
       </div>
     </Modal>
   );

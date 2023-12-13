@@ -1,9 +1,15 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import ListaFilme from './components/ListaFilme';
-import DetalhesFilme from './components/DetalhesFilme';
-import EditarFilme from './components/EditarFilme';
-import CadastrarFilme from './components/CadastrarFilme';
-import './App.css';
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+} from "react";
+import ListaFilme from "./components/ListaFilme";
+import DetalhesFilme from "./components/DetalhesFilme";
+import EditarFilme from "./components/EditarFilme";
+import CadastrarFilme from "./components/CadastrarFilme";
+import "./App.css";
 
 interface Movie {
   id: number;
@@ -25,11 +31,14 @@ const App: React.FC = () => {
     return movies.sort((a, b) => a.title.localeCompare(b.title));
   }, [movies]);
 
-  const handleMovieClick = useCallback((id: number) => {
-    const selected = movies.find((movie) => movie.id === id);
-    setSelectedMovie(selected || null);
-    setDetailsModalOpen(true);
-  }, [movies]);
+  const handleMovieClick = useCallback(
+    (id: number) => {
+      const selected = movies.find((movie) => movie.id === id);
+      setSelectedMovie(selected || null);
+      setDetailsModalOpen(true);
+    },
+    [movies]
+  );
 
   const handleEditClick = useCallback(() => {
     setEditModalOpen(true);
@@ -37,13 +46,17 @@ const App: React.FC = () => {
 
   const handleEditSave = useCallback((editedMovie: Movie) => {
     setMovies((prevMovies) =>
-      prevMovies.map((movie) => (movie.id === editedMovie.id ? editedMovie : movie))
+      prevMovies.map((movie) =>
+        movie.id === editedMovie.id ? editedMovie : movie
+      )
     );
   }, []);
 
   const handleRemoveClick = useCallback(() => {
     if (selectedMovie) {
-      setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== selectedMovie.id));
+      setMovies((prevMovies) =>
+        prevMovies.filter((movie) => movie.id !== selectedMovie.id)
+      );
       setDetailsModalOpen(false);
     }
   }, [selectedMovie]);
@@ -60,9 +73,12 @@ const App: React.FC = () => {
     setAddModalOpen(true);
   }, []);
 
-  const handleAddSave = useCallback((newMovie: Movie) => {
-    setMovies([...movies, newMovie]);
-  }, [movies]);
+  const handleAddSave = useCallback(
+    (newMovie: Movie) => {
+      setMovies([...movies, newMovie]);
+    },
+    [movies]
+  );
 
   const scrollToTopButtonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -70,17 +86,17 @@ const App: React.FC = () => {
     const handleScroll = () => {
       if (scrollToTopButtonRef.current) {
         if (window.scrollY > 100) {
-          scrollToTopButtonRef.current.style.display = 'block';
+          scrollToTopButtonRef.current.style.display = "block";
         } else {
-          scrollToTopButtonRef.current.style.display = 'none';
+          scrollToTopButtonRef.current.style.display = "none";
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -89,32 +105,75 @@ const App: React.FC = () => {
       <div className="header">
         <h1>Streaming de Videos</h1>
       </div>
-      <div className='centralizar'>
-        <h2>Catálogo de Filmes</h2>  
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 20px",
+        }}
+      >
+        <div className="centralizar">
+          <h2>Catálogo de Filmes</h2>
+        </div>
+        <button
+          className="botaoADD"
+          onClick={handleAddClick}
+          style={{
+            width: "200px",
+          }}
+        >
+          Adicionar Filme
+        </button>
       </div>
-      <button className='botaoADD' onClick={handleAddClick}>Adicionar Filme</button>
       <div className="lista">
         <ListaFilme movies={sortedMovies} onMovieClick={handleMovieClick} />
       </div>
       <DetalhesFilme
-        movie={selectedMovie || { id: 0, title: '', posterUrl: '', sinopse: '', elenco: '', classificacao: '' }}
+        movie={
+          selectedMovie || {
+            id: 0,
+            title: "",
+            posterUrl: "",
+            sinopse: "",
+            elenco: "",
+            classificacao: "",
+          }
+        }
         isOpen={isDetailsModalOpen}
         onRequestClose={handleRemoveModalClose}
         onEditClick={handleEditClick}
         onRemoveClick={handleRemoveClick}
       />
       <EditarFilme
-        movie={selectedMovie || { id: 0, title: '', posterUrl: '', sinopse: '', elenco: '', classificacao: '' }}
+        movie={
+          selectedMovie || {
+            id: 0,
+            title: "",
+            posterUrl: "",
+            sinopse: "",
+            elenco: "",
+            classificacao: "",
+          }
+        }
         isOpen={isEditModalOpen}
         onRequestClose={handleEditModalClose}
         onSave={handleEditSave}
       />
-      <CadastrarFilme isOpen={isAddModalOpen}
+      <CadastrarFilme
+        isOpen={isAddModalOpen}
         onRequestClose={() => setAddModalOpen(false)}
         onAdd={handleAddSave}
       />
-      
-      <button className="botaoTopo" ref={scrollToTopButtonRef} onClick={() => window.scrollTo(0, 0)}>
+
+      <button
+        className="botaoTopo"
+        ref={scrollToTopButtonRef}
+        onClick={() => window.scrollTo(0, 0)}
+        style={{
+          width: "200px",
+        }}
+      >
         Voltar ao Topo
       </button>
     </div>
